@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hurtownia</title>
+
+        <link rel="stylesheet" href="styl4.css">
+    </head>
+    <body>
+
+        <div id="header">
+            <div class="header-logo">
+                <img src="logo.png" alt="hurtownia">
+            </div>
+            <div class="header-menu">
+                <a href="index.html">Strona Główna</a>
+                <a href="zamowienia.html">Zamówienia</a>
+                <a href="blog.html">Blog o kawie</a>
+                <a href="http://gatunki-kawy.pl/" target="_blank">Odwiedź także</a>
+            </div>
+        </div>
+
+        <div id="banner">
+            <h1>Hurtownia kawy</h1>
+        </div>
+
+        <div id="cont">
+            <div class="cont-left">
+                <h2>Oferta</h2>
+                <ol>
+                    <li>Kawa palona Arabica</li>
+                    <li>Kawa palona Robusta</li>
+                    <li>Kawa bezkofeinowa</li>
+                    <li class="under">Kawa zielona</li>
+                </ol>
+            </div>
+            <div class="cont-right">
+               Podaj numer kawy:<br>
+               <input id="nrkawy"><br>
+               podaj wage w dekagramach:<br>
+               <input id="dgr">
+               <button onclick="javascript: zamow();">zamow</button>
+               <div id="kwota"></div>
+                <script>
+                    function zamow() {
+                        var nrkawy = document.getElementById('nrkawy').value;
+                        var dgr = document.getElementById('dgr').value;
+                        dgr = parseInt(dgr);
+                        var cena;
+
+                        switch(nrkawy){
+                            case '1':
+                                cena = 5;
+                                break;
+                            case '2':
+                                cena = 6;
+                                break;
+                            case '3':
+                                cena = 7;
+                                break;
+                            default:
+                                cena = 0;
+                                break;
+                        }
+                        var kwota = cena * dgr;
+                        document.getElementById('kwota').innerText = 'koszt zamowienia wynosi' + kwota + 'zl';
+                    }
+
+                </script>
+            </div>
+        </div>
+        <div id="footer">
+            <p>Stornę przyogotwał: Piotr Balcerski</p>
+        </div>
+    </body>
+</html>
